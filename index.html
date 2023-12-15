@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="picture/jb.jpg" alt="Logo">
+            </div>
+            <ul>
+                <li><a href="#">ABOUT US</a></li>
+                <li><a href="#">PASSCARD</a></li>
+                <li><a href="#">PROFILE</a></li>
+                <li class="search-box">
+                    <button id="searchButton" type="button">
+                        <img src="picture/search.jpg" alt="Search">
+                    </button>
+                    <span class="cart">
+                        <img src="picture/cart.jpg" alt="Cart">
+                    </span>    
+                    <div class="badge">
+                        <div class="number">1</div>
+                    </div>      
+                    <div class="menu">
+                        <a href="#">LOGIN</a>
+                        <span class="separator"></span>
+                        <a href="#">SIGN UP</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header> 
+    <body>
+        <span class="my-cart">My Cart</span>
+       <!-- Container 1 -->
+<div class="container1" style="position: relative;">
+    <div class="image-container">
+        <img src="picture/rb.jpg" alt="rb" class="delete-image" onclick="deleteImage(this)">
+    </div>
+    <div style="position: absolute; top: 135px; left: 150px; color: rgb(239, 243, 247); font-size: 15px; z-index: 1;">
+        Used for business
+    </div>
+    <img src="picture/blue.jpg" alt="blue" class="small-image">
+    <div class="text-docs">
+        <h2>Google Docs</h2>
+        <div class="op">
+            <select id="circleSelect1" onchange="drawCircles('circleSelect1')" class="green-border">
+                <option value="1">LV 1-3</option>
+                <option value="2">LV 2-3</option>
+                <option value="3">LV 3-3</option>
+            </select>
+        </div>
+        <div class="circle-container" id="circleContainer1">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+        <div class="text1">
+            <p>THB 150</p>
+        </div>
+        <!-- ส่วนอื่น ๆ ที่ต้องการใส่ใน container 1 -->
+    </div>
+</div>
+
+<!-- Container 2 -->
+<div class="container2" style="position: relative;">
+    <div class="image-container1">
+        <img src="picture/rb.jpg" alt="rb" class="delete-image" onclick="deleteImage(this)">
+    </div>
+    <div style="position: absolute; top: 135px; left: 150px; color: rgb(239, 243, 247); font-size: 15px; z-index: 1;">
+        Used for business
+    </div>
+    <img src="picture/orang.jpg" alt="blue" class="small-image1">
+    <div class="text-docs">
+        <h2>Google Docs</h2>
+        <div class="op">
+            <select id="circleSelect2" onchange="drawCircles('circleSelect2')" class="green-border" style="margin-left: 40px;">
+                <option value="1">LV 1/4</option>
+                <option value="2">LV 2/4</option>
+                <option value="3">LV 3/4</option>
+                <option value="4">LV 4/4</option>
+            </select>
+        </div>
+        <div class="circle-container" id="circleContainer2">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+        <div class="text1">
+            <p>THB 150</p>
+        </div>
+        <!-- ส่วนอื่น ๆ ที่ต้องการใส่ใน container 2 -->
+    </div>
+
+    <div class="container3">
+        <h2 class="text01">Order Info</h2>
+        <p class="price">300 THB</p>
+        <p class="subtotal">Subtotal</p>
+        <p class=" total-payment">Total Payment</p>
+        <div><input type="text" placeholder="    Promotion code" /></div>
+        <div><button class="btn">Apply</button></div>
+        <div class="containerpay">
+            <div><button class="btn01">LOG IN TO CHECKOUT</button></div>
+    </div>
+
+<script>
+    function drawCircles(containerId) {
+        var selectValue = document.getElementById(containerId).value;
+        var circles = document.querySelectorAll('#' + containerId.replace('circleSelect', 'circleContainer') + ' .circle');
+        var selectElement = document.getElementById(containerId);
+
+        // รีเซ็ตสีของวงกลมและขอบ dropdown
+        circles.forEach(function(circle) {
+            circle.style.backgroundColor = "#ccc8c8b7"; // เทาที่จางลง
+        });
+        selectElement.style.borderColor = ""; // กำหนดให้เป็นค่า default
+
+        // เปลี่ยนสีวงกลมตามจำนวนที่เลือก
+        for (var i = 0; i < selectValue; i++) {
+            circles[i].style.backgroundColor = "rgb(44, 207, 166)"; // สีเขียว
+        }
+
+        // เปลี่ยนสีขอบของ select เมื่อมีการเลือก
+        if (selectValue === "1" || selectValue === "2" || selectValue === "3" || selectValue === "4") {
+            selectElement.style.borderColor = "rgb(44, 207, 166)"; // สีเขียว
+        } else {
+            selectElement.style.borderColor = ""; // กำหนดให้เป็นค่า default
+        }
+    }
+</script>
+
+    </body>
+</html>
